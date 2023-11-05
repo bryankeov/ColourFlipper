@@ -1,6 +1,10 @@
 "use client";
 
+import { useState } from "react";
+
 export default function Home() {
+  let [number, setNumber] = useState(0);
+
   const onSubmit = () => {
     let r = Math.floor(Math.random() * 256);
     let g = Math.floor(Math.random() * 256);
@@ -9,8 +13,8 @@ export default function Home() {
     let colour = `rgb(${r},${g},${b})`;
 
     document.body.style.backgroundColor = colour;
+    setNumber(number + 1);
   };
-
   return (
     <div
       id="bg"
@@ -30,6 +34,7 @@ export default function Home() {
       >
         COLOUR FLIPPER
       </h1>
+      <div className="text-xl">{number}</div>
       <button
         type="submit"
         onClick={onSubmit}
